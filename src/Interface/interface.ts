@@ -5,6 +5,7 @@ export interface Product {
   img : string[] ;
   detail : string ; 
   descripe : string;
+  type : string
 }
 
 export type TListProduct = Product[]

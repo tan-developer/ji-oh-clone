@@ -10,7 +10,9 @@ const Navigation: React.FC<Props> = (props) => {
   return (
     <React.Fragment>
       <div className="logo">
-        <img src="./icon/logo.png" alt="" />
+        <Link to="/">
+          <img src="./icon/logo.png" alt="" />
+        </Link>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.menu} onClick={() => props.toggle()}></div>
@@ -27,8 +29,12 @@ const Navigation: React.FC<Props> = (props) => {
           <li className={styles.children}>
             <Link to="/pres">Press</Link>
           </li>
-          <li className={styles.children}><Link to="/story">Story</Link></li>
-          <li className={styles.children}><Link to="/collections">Collections</Link></li>
+          <li className={styles.children}>
+            <Link to="/story">Story</Link>
+          </li>
+          <li className={styles.children}>
+            <Link to="/collections">Collections</Link>
+          </li>
           <li className={styles.children}>Contact</li>
         </ul>
         <ul className={styles.right}>

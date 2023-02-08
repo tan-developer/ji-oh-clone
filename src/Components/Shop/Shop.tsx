@@ -1,3 +1,5 @@
+import { useContext, useState } from "react";
+
 import { TListProduct, Product } from "../../Interface/interface";
 import CardProduct from "../CardProduct/CardProduct";
 import styles from "./Shop.module.scss";
@@ -6,6 +8,8 @@ import cardStyles from "../CardProduct/CardProduct.module.scss";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+
+import { ShopContext } from "../../Context/ShopContext";
 
 type _2 = {
   children: any | JSX.Element | JSX.Element[];
@@ -26,19 +30,36 @@ const Box = ({ children }: _2) => {
 };
 
 interface Props {
-  isLoading: boolean;
-  listProduct: TListProduct;
+  // isLoading: boolean;
+  // listProduct: TListProduct;
 }
 
 const Shop: React.FC<Props> = (props) => {
-  console.log(props.listProduct);
-
+  const { isLoading, product } = useContext(ShopContext);
+  const [shopMenu, setMenu] = useState<string>("");
   const loadingState = [1, 2, 3];
 
   return (
     <section className={styles.section}>
+      <div className={styles.filter}>
+        <span className={shopMenu === "filter" ? styles.minus : styles.plus}>
+          filter :
+        </span>
+        <span className={shopMenu === "sort" ? styles.minus : styles.plus}>
+          sort :{" "}
+        </span>
+
+        <div className={styles.dropDown}>
+          <span className={styles.type}>BAGS</span>
+          <span className={styles.sort}>
+            <span>MOST RECENT</span>
+            <span>PRICE (LOW TO HIGH)</span>
+            <span>PRICE (HIGH TO LOW)</span>
+          </span>
+        </div>
+      </div>
       <div className={styles.container}>
-        {props.isLoading
+        {isLoading
           ? loadingState.map((_, index) => {
               return (
                 <div className={cardStyles.container}>
@@ -49,7 +70,6 @@ const Shop: React.FC<Props> = (props) => {
                         width={400}
                         height={600}
                         borderRadius={10}
-
                       />
                     </Box>
                     <Skeleton
@@ -69,7 +89,7 @@ const Shop: React.FC<Props> = (props) => {
                 </div>
               );
             })
-          : props.listProduct.map((element) => (
+          : product!.map((element) => (
               <CardProduct
                 img={element.img}
                 title={element.title}

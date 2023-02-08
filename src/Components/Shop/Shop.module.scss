@@ -1,4 +1,4 @@
-@import '../../scss/variable';
+@import "../../scss/variable";
 
 .container {
   padding: 0 25rem;
@@ -9,17 +9,41 @@
 
   @include flex-grid-items(2);
 
-  @media (max-width : 1200px) {
+  @media (max-width: 1200px) {
     padding: 0 3rem;
   }
 
-  
-
-  @media (min-width : 1200px) {
+  @media (min-width: 1200px) {
     > *:nth-child(2) {
       justify-content: flex-end;
-      
     }
   }
 }
 
+.filter {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 5%;
+  left: 5%;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.3rem;
+  span {
+    cursor: pointer;
+  }
+}
+
+.minus {
+  &:after {
+    content: " -";
+    font-size: 1.5rem;
+  }
+}
+
+.plus {
+  &:after {
+    content: " +";
+    font-size: 1.5rem;
+  }
+}

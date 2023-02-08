@@ -9,6 +9,7 @@ type UnwantedKey = {
   descripe: string;
   detail: string;
   color: string;
+  type : string
 };
 
 type Props = Omit<Product, keyof UnwantedKey>;

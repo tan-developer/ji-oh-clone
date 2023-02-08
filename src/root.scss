@@ -90,6 +90,8 @@ html {
   left: 50%;
   transform: translate(-50% , -50%);
   height: 4rem;
+  z-index: 10;
+  cursor: pointer;
 
   img {
     height: 100%;
@@ -98,7 +100,7 @@ html {
 
 @media only screen and (max-width: 1200px) {
   .logo {
-    display: none;
+    top: 3.5rem;
   }
 }
 
