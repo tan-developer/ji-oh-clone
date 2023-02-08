@@ -1,0 +1,113 @@
+@import "./scss/variable";
+
+@import url(//db.onlinewebfonts.com/c/cf3327022417d4ff7f54f0963c4f41ea?family=Akkurat);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Raleway', sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  @include respond(tab-land) {
+    // < 1200px ?
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include respond(tab-port) {
+    // < 900px
+    font-size: 50%; // 1rem = 8px
+  }
+
+  @include respond(big-desktop) {
+    // > 1800px
+    font-size: 75%; // 1 rem = 12px
+  }
+}
+
+#overlay {
+  position: fixed;
+  // width: 100vw;
+  // height: 100vh;
+  // top: 0;
+  // left: 0;
+}
+
+.logo {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  height: 4rem;
+
+  img {
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .logo {
+    display: none;
+  }
+}
+
+.content-container {
+  width: 90%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color : inherit ; 
+}

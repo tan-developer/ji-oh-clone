@@ -1,0 +1,54 @@
+@mixin background($URL) {
+    background-image: url($URL);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin respond($beakpoint) {
+  @if $beakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $beakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $beakpoint == tab-land {
+    @media (min-width: 75em) {
+      @content;
+    } // 1200px
+  }
+  @if $beakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+@mixin backgroundFix {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin flex-grid-items($cols) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    $item-width: 100% / $cols;
+    width: $item-width;
+    box-sizing: border-box;
+
+  }
+}
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
