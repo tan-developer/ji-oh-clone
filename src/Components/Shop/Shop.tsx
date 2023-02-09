@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { TListProduct, Product } from "../../Interface/interface";
 import CardProduct from "../CardProduct/CardProduct";
@@ -10,6 +10,8 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import { ShopContext } from "../../Context/ShopContext";
+import { ACTION, SORT } from "../../Reducer/ShopFilter";
+import { spawn } from "child_process";
 
 type _2 = {
   children: any | JSX.Element | JSX.Element[];
@@ -31,38 +33,100 @@ const Box = ({ children }: _2) => {
 
 interface Props {
   // isLoading: boolean;
-  // listProduct: TListProduct;
+  // product: TListProduct;
+  // dispatchProduct : any
 }
 
-const Shop: React.FC<Props> = (props) => {
-  const { isLoading, product } = useContext(ShopContext);
+const Shop: React.FC<Props> = () => {
+  const { isLoading, product, dispatchProduct } = useContext(ShopContext);
   const [shopMenu, setMenu] = useState<string>("");
   const loadingState = [1, 2, 3];
 
+  const handlerMenu: (filter: string) => void = (filter: string) => {
+    filter === shopMenu ? setMenu("") : setMenu(filter);
+  };
+
+
+  useEffect(() => {
+    setMenu('')
+  } , [product])
+
+
+  console.log(product);
   return (
-    <section className={styles.section}>
-      <div className={styles.filter}>
-        <span className={shopMenu === "filter" ? styles.minus : styles.plus}>
+    <section className={styles.section} >
+      <div className={styles.filter} >
+        <span
+          className={shopMenu === "filter" ? styles.minus : styles.plus}
+          onClick={() => handlerMenu("filter")}
+        >
           filter :
         </span>
-        <span className={shopMenu === "sort" ? styles.minus : styles.plus}>
+        <span
+          className={shopMenu === "sort" ? styles.minus : styles.plus}
+          onClick={() => handlerMenu("sort")}
+        >
           sort :{" "}
         </span>
 
         <div className={styles.dropDown}>
-          <span className={styles.type}>BAGS</span>
-          <span className={styles.sort}>
-            <span>MOST RECENT</span>
-            <span>PRICE (LOW TO HIGH)</span>
-            <span>PRICE (HIGH TO LOW)</span>
+          <span
+            className={
+              shopMenu === "filter"
+                ? styles.type
+                : `${styles.type} ${styles.hidden}`
+            }
+          >
+            BAGS
+          </span>
+          <span
+            className={
+              shopMenu === "sort"
+                ? styles.sort
+                : `${styles.sort} ${styles.hidden}`
+            }
+          >
+            <span
+              onClick={() =>{
+                dispatchProduct({ type: ACTION.SORT, details: SORT.RECENT })
+                setMenu('')
+              }}
+            >
+              MOST RECENT
+            </span>
+            <span
+              onClick={() =>{
+                dispatchProduct({ type: ACTION.SORT, details: SORT.LOWTOHIGH })
+                setMenu('')
+              }}
+            >
+              PRICE (LOW TO HIGH)   
+            </span>
+            <span
+              onClick={() =>{
+                dispatchProduct({ type: ACTION.SORT, details: SORT.HIGHTOLOW })
+                setMenu('')
+              }}
+            >
+              PRICE (HIGH TO LOW)
+            </span>
           </span>
         </div>
       </div>
-      <div className={styles.container}>
-        {isLoading
-          ? loadingState.map((_, index) => {
+
+      <div className={styles.container }>
+        {!(product!.length <= 0)
+          ? product!.map((element) => (
+              <CardProduct
+                img={element.img}
+                title={element.title}
+                price={element.price}
+                key={element.title}
+              />
+            ))
+          : loadingState.map((_, index) => {
               return (
-                <div className={cardStyles.container}>
+                <div className={cardStyles.container} key={index}>
                   <SkeletonTheme baseColor="#ECE8DD" highlightColor="#F8F4EA">
                     <Box>
                       <Skeleton
@@ -88,15 +152,7 @@ const Shop: React.FC<Props> = (props) => {
                   </SkeletonTheme>
                 </div>
               );
-            })
-          : product!.map((element) => (
-              <CardProduct
-                img={element.img}
-                title={element.title}
-                price={element.price}
-                key={element.title}
-              />
-            ))}
+            })}
       </div>
     </section>
   );
