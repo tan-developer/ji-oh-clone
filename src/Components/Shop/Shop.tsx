@@ -46,16 +46,31 @@ const Shop: React.FC<Props> = () => {
     filter === shopMenu ? setMenu("") : setMenu(filter);
   };
 
+  useEffect(() => {
+    // trigger re-render component and close the filter menu
+
+    setMenu("");
+  }, [product]);
 
   useEffect(() => {
-    setMenu('')
-  } , [product])
+    async function takeData() {
+      const response = await fetch(
+        "https://api.npoint.io/e57853cdc0483b76c002"
+      );
 
+      dispatchProduct({
+        type: ACTION.SET,
+        details: SORT.SET,
+        state: await response.json(),
+      });
+    }
 
-  console.log(product);
+    takeData();
+  }, []);
+
   return (
-    <section className={styles.section} >
-      <div className={styles.filter} >
+    <section className={styles.section}>
+      <div className={styles.filter}>
         <span
           className={shopMenu === "filter" ? styles.minus : styles.plus}
           onClick={() => handlerMenu("filter")}
@@ -87,25 +102,25 @@ const Shop: React.FC<Props> = () => {
             }
           >
             <span
-              onClick={() =>{
-                dispatchProduct({ type: ACTION.SORT, details: SORT.RECENT })
-                setMenu('')
+              onClick={() => {
+                dispatchProduct({ type: ACTION.SORT, details: SORT.RECENT });
+                setMenu("");
               }}
             >
               MOST RECENT
             </span>
             <span
-              onClick={() =>{
-                dispatchProduct({ type: ACTION.SORT, details: SORT.LOWTOHIGH })
-                setMenu('')
+              onClick={() => {
+                dispatchProduct({ type: ACTION.SORT, details: SORT.LOWTOHIGH });
+                setMenu("");
               }}
             >
-              PRICE (LOW TO HIGH)   
+              PRICE (LOW TO HIGH)
             </span>
             <span
-              onClick={() =>{
-                dispatchProduct({ type: ACTION.SORT, details: SORT.HIGHTOLOW })
-                setMenu('')
+              onClick={() => {
+                dispatchProduct({ type: ACTION.SORT, details: SORT.HIGHTOLOW });
+                setMenu("");
               }}
             >
               PRICE (HIGH TO LOW)
@@ -114,7 +129,7 @@ const Shop: React.FC<Props> = () => {
         </div>
       </div>
 
-      <div className={styles.container }>
+      <div className={styles.container}>
         {!(product!.length <= 0)
           ? product!.map((element) => (
               <CardProduct
@@ -122,6 +137,7 @@ const Shop: React.FC<Props> = () => {
                 title={element.title}
                 price={element.price}
                 key={element.title}
+                state={element}
               />
             ))
           : loadingState.map((_, index) => {

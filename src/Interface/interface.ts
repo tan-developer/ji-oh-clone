@@ -5,7 +5,10 @@ export interface Product {
   img : string[] ;
   detail : string ; 
   descripe : string;
-  type : string
+  type : string;
+
+  // ????????????
+  state? : any;
 }
 
 export type TListProduct = Product[]
