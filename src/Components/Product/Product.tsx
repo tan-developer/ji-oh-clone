@@ -29,8 +29,9 @@ const ProductPage: React.FC = ({}) => {
           <h5 dangerouslySetInnerHTML={{ __html: detail }}></h5>
         </span>
       </div>
+
       <div className={styles.row_2}>
-        <Carousel>
+        <Carousel autoPlay={true} infiniteLoop={true}>
           {img ? (
             img.map((e: string) => (
               <div>
@@ -42,6 +43,8 @@ const ProductPage: React.FC = ({}) => {
           )}
         </Carousel>
       </div>
+
+
       <div className={styles.row_3}>
         <div className={styles.size}>
           <h5>size : </h5> <h5 className={styles.under}>o/s</h5>

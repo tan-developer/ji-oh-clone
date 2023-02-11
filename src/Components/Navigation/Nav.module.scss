@@ -4,7 +4,7 @@
   top: 0;
 }
 
-@include respond(tab-land) {
+@media only screen and (min-width: 1000px) {
   .cart {
     display: none;
   }
@@ -78,7 +78,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
   .right,
   .left {
     display: none;
