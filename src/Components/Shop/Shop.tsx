@@ -11,7 +11,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 import { ShopContext } from "../../Context/ShopContext";
 import { ACTION, SORT } from "../../Reducer/ShopFilter";
-import { spawn } from "child_process";
 
 type _2 = {
   children: any | JSX.Element | JSX.Element[];

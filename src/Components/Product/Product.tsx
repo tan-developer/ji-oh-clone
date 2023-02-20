@@ -33,8 +33,8 @@ const ProductPage: React.FC = ({}) => {
       <div className={styles.row_2}>
         <Carousel autoPlay={true} infiniteLoop={true}>
           {img ? (
-            img.map((e: string) => (
-              <div>
+            img.map((e: string , i : number) => (
+              <div key={i}>
                 <img src={e} alt="" />
               </div>
             ))

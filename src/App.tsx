@@ -13,45 +13,52 @@ import Shop from "./Components/Shop/Shop";
 import ShopContextProvider from "./Context/ShopContext";
 import ProductPage from "./Components/Product/Product";
 import ProductPageContextProvider from "./Context/ProductPageContext";
+import CartContext from "./Context/CartContext";
+import PopupCart from "./Components/Cart/PopupCart";
 
 const LazyShop = React.lazy(() => import("./Components/Shop/Shop"));
 
 const App: React.FC = () => {
   const [isActive, updateActive] = useState<boolean>(false);
+  const [isHover, updateHover] = useState<boolean>(false);
 
   const adjustState = () => {
     updateActive(!isActive);
   };
-
+  console.log(isHover);
   const routeNav = (
     <>
-      <Navigation toggle={adjustState} />
+      <Navigation toggle={adjustState} updateCartHover={updateHover} />
       <MenuOverlay isActive={isActive} />
     </>
   );
   return (
     <ShopContextProvider>
       <ProductPageContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={routeNav}>
-              <Route index element={<Home />} />
-              <Route
-                path="/shop"
-                element={
-                  <React.Suspense fallback="">
-                    <LazyShop />
-                  </React.Suspense>
-                }
-              />
-              <Route path={`/shop/*`} element={<ProductPage />} />
-              {/* <Route path="press" element={<Blogs />} /> */}
-              {/* <Route path="story" element={<Contact />} /> */}
-              {/* <Route path="collections" element={<Contact />} /> */}
-              {/* <Route path="*" element={<NoPage />} /> */}
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <CartContext>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={routeNav}>
+                <Route index element={<Home />} />
+                <Route
+                  path="/shop"
+                  element={
+                    <React.Suspense fallback="">
+                      <LazyShop />
+                    </React.Suspense>
+                  }
+                />
+                <Route path={`/shop/*`} element={<ProductPage />} />
+                {/* <Route path="press" element={<Blogs />} /> */}
+                {/* <Route path="story" element={<Contact />} /> */}
+                {/* <Route path="collections" element={<Contact />} /> */}
+                {/* <Route path="*" element={<NoPage />} /> */}
+              </Route>
+            </Routes>
+          </BrowserRouter>
+          <PopupCart isHover={isHover}/>
+
+        </CartContext>
       </ProductPageContextProvider>
     </ShopContextProvider>
   );

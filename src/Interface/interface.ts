@@ -12,3 +12,13 @@ export interface Product {
 }
 
 export type TListProduct = Product[]
+
+export type CartProduct = Product & {
+  amount : number
+}
+
+export interface Cart {
+    product? : CartProduct[]
+    total? : number,
+    dispatch? : React.Dispatch<any>
+}

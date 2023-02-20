@@ -4,6 +4,7 @@ import React from "react";
 
 interface Props {
   toggle: () => void;
+  updateCartHover: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Navigation: React.FC<Props> = (props) => {
@@ -41,7 +42,11 @@ const Navigation: React.FC<Props> = (props) => {
           <li className={styles.children}>
             <img src="./icon/icon-search.png" alt="" />
           </li>
-          <li className={styles.children}>
+          <li
+            className={styles.children}
+            onMouseEnter={() => props.updateCartHover(true)}
+            onMouseLeave={() => props.updateCartHover(false)}
+          >
             <img src="./icon/icon-bag.png" alt="" />
           </li>
           <ul className={styles.reverse}>

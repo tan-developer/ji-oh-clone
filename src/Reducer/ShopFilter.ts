@@ -1,5 +1,3 @@
-/* eslint-disable no-fallthrough */
-import { Console } from "console"
 import { Product, TListProduct } from "../Interface/interface"
 
 export enum ACTION {

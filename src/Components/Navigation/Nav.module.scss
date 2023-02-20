@@ -2,6 +2,12 @@
 
 .wrapper {
   top: 0;
+
+  
+}
+
+.children {
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -73,7 +79,6 @@
       writing-mode: tb-rl;
       font-size: 1.2rem;
       font-weight: bold;
-      cursor: pointer;
     }
   }
 }
