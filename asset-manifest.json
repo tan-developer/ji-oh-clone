@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ji-oh-clone/static/css/main.0428c3cb.css",
+    "main.js": "/ji-oh-clone/static/js/main.9f04766b.js",
+    "index.html": "/ji-oh-clone/index.html",
+    "main.0428c3cb.css.map": "/ji-oh-clone/static/css/main.0428c3cb.css.map",
+    "main.9f04766b.js.map": "/ji-oh-clone/static/js/main.9f04766b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0428c3cb.css",
+    "static/js/main.9f04766b.js"
+  ]
+}
