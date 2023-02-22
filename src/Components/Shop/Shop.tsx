@@ -9,6 +9,7 @@ import cardStyles from "../CardProduct/CardProduct.module.scss";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+
 import { ShopContext } from "../../Context/ShopContext";
 import { ACTION, SORT } from "../../Reducer/ShopFilter";
 
@@ -36,6 +37,16 @@ interface Props {
   // dispatchProduct : any
 }
 
+export const takeData = async (callback : any) => {
+    const response = await fetch("https://api.npoint.io/e57853cdc0483b76c002");
+
+    callback({
+      type: ACTION.SET,
+      details: SORT.SET,
+      state: await response.json(),
+    });
+};
+
 const Shop: React.FC<Props> = () => {
   const { isLoading, product, dispatchProduct } = useContext(ShopContext);
   const [shopMenu, setMenu] = useState<string>("");
@@ -52,19 +63,7 @@ const Shop: React.FC<Props> = () => {
   }, [product]);
 
   useEffect(() => {
-    async function takeData() {
-      const response = await fetch(
-        "https://api.npoint.io/e57853cdc0483b76c002"
-      );
-
-      dispatchProduct({
-        type: ACTION.SET,
-        details: SORT.SET,
-        state: await response.json(),
-      });
-    }
-
-    takeData();
+    takeData(dispatchProduct);
   }, []);
 
   return (
@@ -130,7 +129,7 @@ const Shop: React.FC<Props> = () => {
 
       <div className={styles.container}>
         {!(product!.length <= 0)
-          ? product!.map((element) => (
+          ? product!.map((element : Product) => (
               <CardProduct
                 img={element.img}
                 title={element.title}

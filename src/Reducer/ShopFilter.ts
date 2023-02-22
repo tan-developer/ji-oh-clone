@@ -11,7 +11,6 @@ export enum SORT {
   HIGHTOLOW = 'htl',
   RECENT = 'recent',
   SET = ''
-
 }
 
 

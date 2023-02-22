@@ -1,38 +1,38 @@
-@mixin underLineAfter ($position) {
+@import "../../scss/variable";
+
+@mixin underLineAfter($position) {
   padding-bottom: 1rem;
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     #{$position}: 0;
     left: 0;
     width: 100%;
-    height: .3rem;
-    border-radius: .2rem;
+    height: 0.3rem;
+    border-radius: 0.2rem;
     background-color: aliceblue;
   }
-
 }
 
 .container {
   position: fixed;
   z-index: 5;
   top: 0;
-  right: 0;
+  right: -1000px;
   height: 100vh;
   font-size: 2rem;
+  color: white;
 
   width: 20vw;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: #000;
-  padding : 3rem 2rem;
+  padding: 3rem 2rem;
 
-  color: white;
-
-  // &:nth-child()
+  transition: all 0.4s ease-in-out;
 
   .title {
     display: flex;
@@ -41,7 +41,7 @@
     width: 100%;
     text-align: center;
     align-items: center;
-    @include underLineAfter('bottom');
+    @include underLineAfter("bottom");
 
     .close {
       width: 2rem;
@@ -52,13 +52,36 @@
   }
 
   .product {
-    @include underLineAfter('bottom');
-    width:100%;
-    height: 12rem;
+    width: 100%;
+    max-height: 15rem;
+    background-color: inherit;
+    padding: 0rem 0 2rem 0;
+    font-size: 1.5rem;
+    overflow-y: scroll;
+
+    .item {
+      @include underLineAfter("bottom");
+
+      height: 100%;
+      width: 100%;
+      padding: 2rem 0;
+
+      display: flex;
+      justify-content: flex-start;
+      .image {
+        margin-right: 1rem;
+
+        img {
+          width: 15rem / 2;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
   }
 
   .total {
-    @include underLineAfter('bottom');
+    @include underLineAfter("bottom");
     width: 100%;
     text-align: center;
     justify-content: space-between;
@@ -81,4 +104,8 @@
       cursor: pointer;
     }
   }
+}
+
+.active {
+  right: 0 !important;
 }

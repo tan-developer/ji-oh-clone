@@ -4,7 +4,7 @@ import React from "react";
 
 interface Props {
   toggle: () => void;
-  updateCartHover: React.Dispatch<React.SetStateAction<boolean>>;
+  updateCartActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Navigation: React.FC<Props> = (props) => {
@@ -44,8 +44,7 @@ const Navigation: React.FC<Props> = (props) => {
           </li>
           <li
             className={styles.children}
-            onMouseEnter={() => props.updateCartHover(true)}
-            onMouseLeave={() => props.updateCartHover(false)}
+            onClick={() => props.updateCartActive(true)}
           >
             <img src="./icon/icon-bag.png" alt="" />
           </li>

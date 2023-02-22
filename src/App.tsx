@@ -20,15 +20,15 @@ const LazyShop = React.lazy(() => import("./Components/Shop/Shop"));
 
 const App: React.FC = () => {
   const [isActive, updateActive] = useState<boolean>(false);
-  const [isHover, updateHover] = useState<boolean>(false);
+  const [isCartActive, updateHover] = useState<boolean>(false);
 
   const adjustState = () => {
     updateActive(!isActive);
   };
-  console.log(isHover);
+  console.log(isCartActive);
   const routeNav = (
     <>
-      <Navigation toggle={adjustState} updateCartHover={updateHover} />
+      <Navigation toggle={adjustState} updateCartActive={updateHover} />
       <MenuOverlay isActive={isActive} />
     </>
   );
@@ -56,7 +56,7 @@ const App: React.FC = () => {
               </Route>
             </Routes>
           </BrowserRouter>
-          <PopupCart isHover={isHover}/>
+          <PopupCart isCartActive={isCartActive} updateHover={updateHover}/>
 
         </CartContext>
       </ProductPageContextProvider>

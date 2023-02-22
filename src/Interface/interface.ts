@@ -14,11 +14,12 @@ export interface Product {
 export type TListProduct = Product[]
 
 export type CartProduct = Product & {
-  amount : number
+  amount : number,
+  id : string 
 }
 
 export interface Cart {
     product? : CartProduct[]
     total? : number,
-    dispatch? : React.Dispatch<any>
+    dispatch? : React.Dispatch<any> | null
 }

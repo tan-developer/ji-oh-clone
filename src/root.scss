@@ -92,7 +92,7 @@ html {
   position: fixed;
   top: 5rem;
   left: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
   height: 4rem;
   z-index: 100000;
   cursor: pointer;
@@ -116,7 +116,7 @@ html {
 
 a {
   text-decoration: none;
-  color : inherit ; 
+  color: inherit;
 }
 
 .dot {
@@ -126,3 +126,5 @@ a {
 .carousel-status {
   display: none;
 }
+
+@include customScrollbar;

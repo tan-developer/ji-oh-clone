@@ -6,7 +6,7 @@ import {ShopFilterReducer } from "../Reducer/ShopFilter";
 interface Context {
   // isLoading and product is require not option
   isLoading?: boolean;
-  product?: TListProduct;
+  product?: TListProduct | any;
   dispatchProduct?: React.Dispatch<any> | any;
 }
 
