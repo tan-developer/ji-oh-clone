@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ji-oh-clone/static/css/main.0428c3cb.css",
-    "main.js": "/ji-oh-clone/static/js/main.1f208adb.js",
+    "main.js": "/ji-oh-clone/static/js/main.81ddff14.js",
     "index.html": "/ji-oh-clone/index.html",
     "main.0428c3cb.css.map": "/ji-oh-clone/static/css/main.0428c3cb.css.map",
-    "main.1f208adb.js.map": "/ji-oh-clone/static/js/main.1f208adb.js.map"
+    "main.81ddff14.js.map": "/ji-oh-clone/static/js/main.81ddff14.js.map"
   },
   "entrypoints": [
     "static/css/main.0428c3cb.css",
-    "static/js/main.1f208adb.js"
+    "static/js/main.81ddff14.js"
   ]
 }
