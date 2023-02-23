@@ -25,13 +25,19 @@ const App: React.FC = () => {
   const adjustState = () => {
     updateActive(!isActive);
   };
-  console.log(isCartActive);
+
+
   const routeNav = (
     <>
-      <Navigation toggle={adjustState} updateCartActive={updateHover} />
-      <MenuOverlay isActive={isActive} />
+      <Navigation
+        toggle={adjustState}
+        updateCartActive={updateHover}
+      />
+      <MenuOverlay isActive={isActive} updateActive={updateActive}/>
+      <PopupCart isCartActive={isCartActive} updateHover={updateHover} />
     </>
   );
+
   return (
     <ShopContextProvider>
       <ProductPageContextProvider>
@@ -56,8 +62,6 @@ const App: React.FC = () => {
               </Route>
             </Routes>
           </BrowserRouter>
-          <PopupCart isCartActive={isCartActive} updateHover={updateHover}/>
-
         </CartContext>
       </ProductPageContextProvider>
     </ShopContextProvider>

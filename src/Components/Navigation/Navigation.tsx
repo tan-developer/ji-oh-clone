@@ -12,14 +12,19 @@ const Navigation: React.FC<Props> = (props) => {
     <React.Fragment>
       <div className="logo">
         <Link to="/">
-          <img src="./icon/logo.png" alt="" />
+          <img src="/icon/logo.png" alt="" />
         </Link>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.menu} onClick={() => props.toggle()}></div>
 
-        <div className={styles.cart}>
-          <img src="./icon/icon-bag.png" alt="" />
+        <div
+          className={styles.cart}
+          onClick={(e) => {
+            props.updateCartActive(true);
+          }}
+        >
+          <img src="/icon/icon-bag.png" alt="" />
         </div>
 
         <ul className={styles.left}>
@@ -40,13 +45,13 @@ const Navigation: React.FC<Props> = (props) => {
         </ul>
         <ul className={styles.right}>
           <li className={styles.children}>
-            <img src="./icon/icon-search.png" alt="" />
+            <img src="/icon/icon-search.png" alt="" />
           </li>
           <li
             className={styles.children}
             onClick={() => props.updateCartActive(true)}
           >
-            <img src="./icon/icon-bag.png" alt="" />
+            <img src="/icon/icon-bag.png" alt="" />
           </li>
           <ul className={styles.reverse}>
             <li className={styles.children}>Social</li>

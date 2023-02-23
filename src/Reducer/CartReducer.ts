@@ -15,26 +15,27 @@ interface ACTIONS {
 
 
 export const cartReducer = (draft: CartProduct[], action: ACTIONS) => {
-  if (draft.length === 0) {
-    draft.push(action.payload);
-    return;
-  }
+
+  console.count()
   switch (action.type) {
     case ACTION_TYPE.ADD_TO_CART:
 
       for (const item of draft) {
+        console.log(item)
         if (item.id === action.payload.id) {
           var indexOfProduct = draft.findIndex(i => i.id === action.payload.id);
-          draft[indexOfProduct].amount = draft[indexOfProduct].amount + action.payload.amount
+          draft[indexOfProduct].amount++;
+          return
         }
       }
+
 
       draft.push(action.payload);
       break;
 
     case ACTION_TYPE.REMOVE_FROM_CART:
       const index = draft.findIndex(item => item.id === action.payload.id);
-
+      console.log(index)
       if (index > -1) {
         draft.splice(index, 1);
       }

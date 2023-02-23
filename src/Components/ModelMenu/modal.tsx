@@ -1,24 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
 import styles from "./model.module.scss";
 
 type Props = {
-  isActive : boolean
+  isActive : boolean,
+  updateActive : React.Dispatch<boolean>
 }
 
 const MenuOverlay: React.FC<Props> = (props) => {
   const JSX: React.ReactNode = (
     <>
-      <div className={props.isActive ? `${styles.active}   ${styles.container}`: styles.container  }>
-        <ul className={styles.menu}>
-          <li className={styles.children}>Shop</li>
-          <li className={styles.children}>Press</li>
-          <li className={styles.children}>Story</li>
-          <li className={styles.children}>Collections</li>
-          <li className={styles.children}>Contact</li>
-          <li className={styles.children}>Search</li>
-          <li className={styles.children}></li>
+      <div  className={props.isActive ? `${styles.active} ${styles.container}`: styles.container  }>
+        <ul className={styles.menu} onClick={() => props.updateActive(false)}>
+          <li className={styles.children}><Link to='/shop'>Shop</Link></li>
+          <li className={styles.children}><Link to='/story'>Story</Link></li>
+          <li className={styles.children}><Link to='/press'>Press</Link></li>
+          <li className={styles.children}><Link to='/collections'>Collections</Link></li>
+          <li className={styles.children}><Link to='/contact'>Contact</Link></li>
+          <li className={styles.children}><Link to='/search'>Search</Link></li>
+          {/* <li className={styles.children}></li> */}
         </ul>
 
         <div className={styles.social}>
@@ -28,7 +30,6 @@ const MenuOverlay: React.FC<Props> = (props) => {
         </div>
       </div>
 
-      <div className={styles.exit}></div>
     </>
   );
 

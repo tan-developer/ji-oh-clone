@@ -6,6 +6,11 @@
   width: 100vw;
   height: 310vh;
   padding : 3rem 8rem;
+  @include BreakPoint (1000px , max-width) {
+    padding: 0 2rem;
+    height: 100vh;
+  }
+
   background-clip: content-box;
   position: relative;
   z-index: -1;
