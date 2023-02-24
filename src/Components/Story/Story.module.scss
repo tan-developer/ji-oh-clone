@@ -2,8 +2,24 @@
 
 .container {
   @include flex-grid-items(2);
+
+  @include BreakPoint(1000px , max-width) {
+    @include flex-grid-items(1);
+  }
+
+
+  @include BreakPoint(600px , max-width) {
+    padding: 0 2rem !important;
+
+    &__text {
+      margin-top: 2rem !important;
+      & > * {
+        width: 80vw !important;
+      }
+    }
+  }
   padding: 0 10rem;
-  overflow-y: hidden;
+
   &__text {
     margin-top: 8rem;
     & > * {
