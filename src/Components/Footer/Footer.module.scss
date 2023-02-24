@@ -1,0 +1,32 @@
+footer {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #edebea;
+  z-index: 10000000;
+  position: relative;
+  color: #636262;
+  padding: 3rem 4rem;
+  position: relative;
+  bottom: 0;
+}
+
+.copyright,
+.social {
+  display: flex;
+}
+
+.copyright {
+  & > * {
+    margin-right: 1rem;
+  }
+}
+.social {
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+}

@@ -15,6 +15,8 @@ import ProductPage from "./Components/Product/Product";
 import ProductPageContextProvider from "./Context/ProductPageContext";
 import CartContext from "./Context/CartContext";
 import PopupCart from "./Components/Cart/PopupCart";
+import Footer from "./Components/Footer/Footer";
+import Press from "./Components/Press/Press";
 
 const LazyShop = React.lazy(() => import("./Components/Shop/Shop"));
 
@@ -26,45 +28,44 @@ const App: React.FC = () => {
     updateActive(!isActive);
   };
 
-
   const routeNav = (
     <>
-      <Navigation
-        toggle={adjustState}
-        updateCartActive={updateHover}
-      />
-      <MenuOverlay isActive={isActive} updateActive={updateActive}/>
+      <Navigation toggle={adjustState} updateCartActive={updateHover} />
+      <MenuOverlay isActive={isActive} updateActive={updateActive} />
       <PopupCart isCartActive={isCartActive} updateHover={updateHover} />
     </>
   );
 
   return (
-    <ShopContextProvider>
-      <ProductPageContextProvider>
-        <CartContext>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={routeNav}>
-                <Route index element={<Home />} />
-                <Route
-                  path="/shop"
-                  element={
-                    <React.Suspense fallback="">
-                      <LazyShop />
-                    </React.Suspense>
-                  }
-                />
-                <Route path={`/shop/*`} element={<ProductPage />} />
-                {/* <Route path="press" element={<Blogs />} /> */}
-                {/* <Route path="story" element={<Contact />} /> */}
-                {/* <Route path="collections" element={<Contact />} /> */}
-                {/* <Route path="*" element={<NoPage />} /> */}
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </CartContext>
-      </ProductPageContextProvider>
-    </ShopContextProvider>
+    <>
+      <ShopContextProvider>
+        <ProductPageContextProvider>
+          <CartContext>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={routeNav}>
+                  <Route index element={<Home />} />
+                  <Route
+                    path="/shop"
+                    element={
+                      <React.Suspense fallback="">
+                        <LazyShop />
+                      </React.Suspense>
+                    }
+                  />
+                  <Route path={`/shop/*`} element={<ProductPage />} />
+                  <Route path="/press" element={<Press/>} />
+                  {/* <Route path="story" element={<Contact />} /> */}
+                  {/* <Route path="collections" element={<Contact />} /> */}
+                  {/* <Route path="*" element={<NoPage />} /> */}
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </CartContext>
+        </ProductPageContextProvider>
+      </ShopContextProvider>
+      <Footer />
+    </>
   );
 };
 

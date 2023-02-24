@@ -8,6 +8,7 @@ interface Props {
 }
 
 const Navigation: React.FC<Props> = (props) => {
+
   return (
     <React.Fragment>
       <div className="logo">
@@ -33,7 +34,7 @@ const Navigation: React.FC<Props> = (props) => {
             <Link to="/shop">Shop</Link>
           </li>
           <li className={styles.children}>
-            <Link to="/pres">Press</Link>
+            <Link to="/press">Press</Link>
           </li>
           <li className={styles.children}>
             <Link to="/story">Story</Link>
@@ -49,7 +50,7 @@ const Navigation: React.FC<Props> = (props) => {
           </li>
           <li
             className={styles.children}
-            onClick={() => props.updateCartActive(true)}
+            onClick={() => props.updateCartActive(true  )}
           >
             <img src="/icon/icon-bag.png" alt="" />
           </li>

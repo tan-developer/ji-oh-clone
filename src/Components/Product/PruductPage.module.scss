@@ -6,11 +6,17 @@
   text-align: center;
   padding: 0 5rem;
   align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+
   // justify-content: space-between;
 
   @media (max-width: 1200px) {
     @include flex-grid-items(1);
     padding: 0 2rem;
+  }
+
+  &__container {
   }
 
   .row_1,

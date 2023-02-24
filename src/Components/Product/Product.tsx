@@ -10,43 +10,58 @@ import { ACTION_TYPE } from "../../Reducer/CartReducer";
 import { takeData } from "../Shop/Shop";
 
 import { ShopContext } from "../../Context/ShopContext";
-
-
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 interface Props {}
 
 const ProductPage: React.FC<Props> = ({}) => {
-  const {product ,  dispatchProduct } = useContext(ShopContext);
-  
-  
+  const { product, dispatchProduct } = useContext(ShopContext);
+
   useEffect(() => {
-    takeData(dispatchProduct)
-  } , [])
+    takeData(dispatchProduct);
+  }, []);
 
   const url = document.location.href.split("/");
 
-  const current = product?.filter((product : Product) => {
-    return url[url.length - 1] == product.title.toLocaleLowerCase().replace(/ /g, "-")
-  })
+  const current = product?.filter((product: Product) => {
+    return (
+      url[url.length - 1] ==
+      product.title.toLocaleLowerCase().replace(/ /g, "-")
+    );
+  });
 
-
-  
   const [text, update] = useState<string>("Add to cart");
 
   const { dispatch } = useContext(CartContext);
 
   if (product.length === 0) {
     return (
-      <div className={styles.productPage}>
-        <h1 className={styles.productPage__title}>No Product Found</h1>
+      <div className={styles.container}>
+        <SkeletonTheme baseColor="#ECE8DD" highlightColor="#F8F4EA">
+                      <Skeleton
+                        count={1}
+                        width={400}
+                        height={600}
+                        borderRadius={10}
+                      />
+                    <Skeleton
+                        count={1}
+                        width={400}
+                        height={600}
+                        borderRadius={10}
+                      />
+                    <Skeleton
+                        count={1}
+                        width={400}
+                        height={600}
+                        borderRadius={10}
+                      />
+                  </SkeletonTheme>
       </div>
-    )
+    );
   }
 
-
   const { title, color, descripe, detail, img, price } = current![0];
-
-  
 
   return (
     <div className={styles.container}>
@@ -107,7 +122,7 @@ const ProductPage: React.FC<Props> = ({}) => {
               });
 
               await setTimeout(() => {
-                update("Add to cart");  
+                update("Add to cart");
               }, 2000);
             }}
           >
@@ -117,7 +132,6 @@ const ProductPage: React.FC<Props> = ({}) => {
       </div>
     </div>
   );
-
 };
 
 export default ProductPage;

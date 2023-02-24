@@ -23,3 +23,10 @@ export interface Cart {
     total? : number,
     dispatch? : React.Dispatch<any> | null
 }
+
+export interface Post {
+  banner : string , 
+  date : string , 
+  source : string , 
+  content : string
+}

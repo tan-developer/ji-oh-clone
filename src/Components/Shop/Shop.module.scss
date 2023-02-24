@@ -18,7 +18,7 @@
       justify-content: flex-end;
     }
   }
-  @media (max-width: 1500px) {
+  @media (min-width: 1500px) {
     padding: 12rem;
   }
 }
