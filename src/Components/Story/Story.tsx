@@ -4,18 +4,18 @@ const Story: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container__text}>
-        <h1>
+        <h1 className="m-b--3">
           Through my designs, I hope women believe in their own power, their
           freedom and that their confidence can carry their image, without
           caring about whether an impression is made.
         </h1>
-        <p>
+        <p  className="m-b--2">
           JI OH is a New York City based luxury womenswear label founded in
           2014. In JI OH, opposites create heartfelt drama, punctuated by the
           trueness of Ji’s personal expression through design to make a delicate
           balance for today’s woman.
         </p>
-        <p>
+        <p  className="m-b--5">
           Best known for androgynous, uniform dressing, Ji Oh designs for women
           who believe in comfort and versatility yet with ultimate
           sophistication. It is about making a seamless connection between their
@@ -25,13 +25,13 @@ const Story: React.FC = () => {
           proportion.
         </p>
 
-        <div className={styles.container__img}>
+        <div className={styles.container__img + " m-b--5"}>
           <img
             src="https://jiohny.com/wp-content/uploads/2016/05/about-content-img-1.jpg"
             alt=""
           />
         </div>
-        <p>
+        <p  className="m-b--3">
           Born and raised in South Korea, Ji attended Central Saint Martins in
           London and moved to New York City in 2005 where she continued her
           studies at Parsons Design School. Since the launch of her namesake

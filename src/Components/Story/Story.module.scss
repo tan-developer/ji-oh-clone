@@ -1,0 +1,23 @@
+@import "../../scss/variable";
+
+.container {
+  @include flex-grid-items(2);
+  padding: 0 10rem;
+  overflow-y: hidden;
+  &__text {
+    margin-top: 8rem;
+    & > * {
+      width: 60%;
+      margin: 0 auto  ;
+    }
+  }
+
+  &__image {
+    position: sticky;
+
+    img {
+      object-fit: fit;
+      width: 100%;
+    }
+  }
+}

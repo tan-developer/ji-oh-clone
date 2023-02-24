@@ -64,7 +64,10 @@ ul {
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
+
   @include respond(tab-land) {
+
     // < 1200px ?
     font-size: 56.25%; // 1rem = 9px
   }
@@ -86,7 +89,7 @@ html {
   position: fixed;
   top: 5rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-48%, -50%);
   height: 4rem;
   z-index: 100000;
   cursor: pointer;
@@ -122,3 +125,15 @@ a {
 }
 
 @include customScrollbar;
+.m-b--3 { 
+  margin-bottom: 3rem !important;
+}
+.m-b--4 {
+  margin-bottom: 4rem !important;
+}
+.m-b--5 {
+  margin-bottom: 5rem !important;
+}
+.m-b--2 {
+  margin-bottom: 2rem !important;
+}
