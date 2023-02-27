@@ -22,7 +22,8 @@
   
   
   @include BreakPoint (1000px , max-width) {
-    width: 60vw;
+    width: 70vw;
+    font-size: 300%;
   }
 
   transition: all 0.4s ease-in-out;

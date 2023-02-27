@@ -18,6 +18,9 @@ import PopupCart from "./Components/Cart/PopupCart";
 import Footer from "./Components/Footer/Footer";
 import Press from "./Components/Press/Press";
 import Story from "./Components/Story/Story";
+import Collections from "./Components/Collections/Collections";
+import NoPage from "./Components/404/404";
+import Contact from "./Components/Contact/Contact";
 
 const LazyShop = React.lazy(() => import("./Components/Shop/Shop"));
 
@@ -56,9 +59,10 @@ const App: React.FC = () => {
                   />
                   <Route path={`/shop/*`} element={<ProductPage />} />
                   <Route path="/press" element={<Press/>} />
-                  <Route path="story" element={<Story />} />
-                  {/* <Route path="collections" element={<Contact />} /> */}
-                  {/* <Route path="*" element={<NoPage />} /> */}
+                  <Route path="/story" element={<Story />} />
+                  <Route path="/collections" element={<Collections />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<NoPage />} />
                 </Route>
               </Routes>
             </BrowserRouter>

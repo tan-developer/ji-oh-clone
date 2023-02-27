@@ -1,0 +1,30 @@
+@import "../../scss/variable";
+
+.container {
+  display: flex;
+  width: 60svw;
+  height: 100svh;
+
+  width: 60vw;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  font-size: large;
+  font-weight: bold;
+
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  @include BreakPoint(600px , max-width) {
+    flex-direction: column;    
+  }
+
+  @include BreakPoint(1000px , max-width) {
+    width: 80svw;
+    width: 80vw;
+  }
+}

@@ -30,3 +30,10 @@ export interface Post {
   source : string , 
   content : string
 }
+
+export interface Collection {
+  title : string , 
+  banner : string ,
+  id : string,
+  content : number
+}

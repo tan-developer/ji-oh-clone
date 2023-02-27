@@ -5,23 +5,31 @@
   display: flex;
   flex-direction: column;
   height: 90rem;
-  padding: 0 6rem;
   overflow: hidden;
-
-  @media (max-width: 1000px) {
-    height: unset;
-    padding: 0 1rem;
+  padding: 15rem;
+  
+  @media (max-width: 1500px) {
+    padding: 8rem;
   }
 
   @media (max-width: 700px) {
+  }
+
+  @media (max-width: 1200px) {
+    height: 70rem;
+  }
+
+  @media (max-width: 768px) {
+    height: 50rem;
+    padding: 3rem;
   }
 
 }
 
 .img {
   position: relative;
-  width: 80%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
 
   &:hover {
     .hoverImg {

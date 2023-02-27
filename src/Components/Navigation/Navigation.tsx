@@ -42,7 +42,9 @@ const Navigation: React.FC<Props> = (props) => {
           <li className={styles.children}>
             <Link to="/collections">Collections</Link>
           </li>
-          <li className={styles.children}>Contact</li>
+          <li className={styles.children}>
+          <Link to="/contact">Contact</Link>
+          </li>
         </ul>
         <ul className={styles.right}>
           <li className={styles.children}>
