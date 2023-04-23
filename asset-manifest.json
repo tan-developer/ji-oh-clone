@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ji-oh-clone/static/css/main.0428c3cb.css",
-    "main.js": "/ji-oh-clone/static/js/main.132ffc85.js",
+    "main.css": "/ji-oh-clone/static/css/main.cf9c7a2d.css",
+    "main.js": "/ji-oh-clone/static/js/main.04d9ac39.js",
     "index.html": "/ji-oh-clone/index.html",
-    "main.0428c3cb.css.map": "/ji-oh-clone/static/css/main.0428c3cb.css.map",
-    "main.132ffc85.js.map": "/ji-oh-clone/static/js/main.132ffc85.js.map"
+    "main.cf9c7a2d.css.map": "/ji-oh-clone/static/css/main.cf9c7a2d.css.map",
+    "main.04d9ac39.js.map": "/ji-oh-clone/static/js/main.04d9ac39.js.map"
   },
   "entrypoints": [
-    "static/css/main.0428c3cb.css",
-    "static/js/main.132ffc85.js"
+    "static/css/main.cf9c7a2d.css",
+    "static/js/main.04d9ac39.js"
   ]
 }
