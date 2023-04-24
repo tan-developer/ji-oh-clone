@@ -13,7 +13,7 @@ const Navigation: React.FC<Props> = (props) => {
     <React.Fragment>
       <div className="logo">
         <Link to="/">
-          <img src="/icon/logo.png" alt="" />
+          <img src="/ji-oh-clone/icon/logo.png" alt="" />
         </Link>
       </div>
       <div className={styles.wrapper}>
@@ -25,7 +25,7 @@ const Navigation: React.FC<Props> = (props) => {
             props.updateCartActive(true);
           }}
         >
-          <img src="/icon/icon-bag.png" alt="" />
+          <img src="/ji-oh-clone/icon/icon-bag.png" alt="" />
         </div>
 
         <ul className={styles.left}>
@@ -48,13 +48,13 @@ const Navigation: React.FC<Props> = (props) => {
         </ul>
         <ul className={styles.right}>
           <li className={styles.children}>
-            <img src="/icon/icon-search.png" alt="" />
+            <img src="/ji-oh-clone/icon/icon-search.png" alt="" />
           </li>
           <li
             className={styles.children}
             onClick={() => props.updateCartActive(true  )}
           >
-            <img src="/icon/icon-bag.png" alt="" />
+            <img src="/ji-oh-clone/icon/icon-bag.png" alt="" />
           </li>
           <ul className={styles.reverse}>
             <li className={styles.children}>Social</li>

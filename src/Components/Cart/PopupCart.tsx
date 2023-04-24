@@ -22,7 +22,7 @@ const PopupCart: React.FC<Props> = ({ isCartActive, updateHover }) => {
         <div className={styles.text}>Your Cart</div>
         <div className={styles.close}>
           <img
-            src="/icon/close-white.png"
+            src="/ji-oh-clone/icon/close-white.png"
             alt=""
             onClick={() => updateHover(false)}
           />
@@ -53,7 +53,7 @@ const PopupCart: React.FC<Props> = ({ isCartActive, updateHover }) => {
                       });
                     }}
                   >
-                    <img src="/icon/close-white.png" alt="" />
+                    <img src="/ji-oh-clone/icon/close-white.png" alt="" />
                   </div>
                 </div>
               </div>

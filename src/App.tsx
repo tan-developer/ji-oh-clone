@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 import { TListProduct, Product } from "./Interface/interface";
@@ -25,6 +25,7 @@ import Contact from "./Components/Contact/Contact";
 const LazyShop = React.lazy(() => import("./Components/Shop/Shop"));
 
 const App: React.FC = () => {
+  
   const [isActive, updateActive] = useState<boolean>(false);
   const [isCartActive, updateHover] = useState<boolean>(false);
 
@@ -45,7 +46,8 @@ const App: React.FC = () => {
       <ShopContextProvider>
         <ProductPageContextProvider>
           <CartContext>
-            <BrowserRouter>
+<HashRouter>
+
               <Routes>
                 <Route path="/" element={routeNav}>
                   <Route index element={<Home />} />
@@ -65,7 +67,7 @@ const App: React.FC = () => {
                   <Route path="*" element={<NoPage />} />
                 </Route>
               </Routes>
-            </BrowserRouter>
+            </HashRouter>
           </CartContext>
         </ProductPageContextProvider>
       </ShopContextProvider>
