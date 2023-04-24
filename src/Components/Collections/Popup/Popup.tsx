@@ -25,14 +25,14 @@ const getCollectionContent = (collection: Collection) => {
           key={i}
           onClick={() =>
             writeImgToClipBoard(
-              `/collections/${collection.id}/1 (${i + 1}).jpg`
+              `/ji-oh-clone/collections/${collection.id}/1 (${i + 1}).jpg`
             )
           }
         >
           <div className={styles.content}>
             <img
               alt=""
-              src={`/collections/${collection.id}/1 (${i + 1}).jpg`}
+              src={`/ji-oh-clone/collections/${collection.id}/1 (${i + 1}).jpg`}
             />
             <p>Look {i + 1}</p>
           </div>
@@ -54,7 +54,7 @@ const Popup: React.FC<Props> = ({ collection, setCollectionPopup }) => {
         className={styles.close}
         onClick={() => setCollectionPopup(undefined)}
       >
-        <img src="/icon/close.png" alt="" />
+        <img src="/ji-oh-clone/icon/close.png" alt="" />
       </div>
     </div>,
     document.getElementById("overlay")!
